@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Diary 2017.4.20]]></title>
+      <url>%2F2017%2F04%2F20%2FHexo%E6%96%87%E7%AB%A0%E7%AE%80%E5%8D%95%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE%2F</url>
+      <content type="text"><![CDATA[即使是最简单的密码功能也足以阻止90%的访问者 出处：https://lancelot_lewis.coding.me/2016/12/01/blog/hexo-password/ 一、前言一开始使用Hexo的时候，是喜欢它的简单：因为可以直接编译成纯静态文件，方便部署。可是在使用过程中，又发现诸多不便：也因为它全是纯静态页面。突发奇想，能不能给文章加上一个加密访问的功能…… 在经过实践之后，运用到自己博客中，发现有不少的访客对这个功能甚是感兴趣，所以也就在这里找个时间写写自己加密的小诀窍吧算是。 二、原理由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？ 这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。例子参见如下： 12var password = promt(&apos;请输入文章密码&apos;);alert(password); 三、实践究竟要把上述代码加在哪里呢？找到themes-&gt;next-&gt;layout-&gt;_partials-&gt;head.swig文件。按道理是添加在任何地方都行，但是推荐加在所有的&lt;meta&gt;标签之后，个人建议，仅做参考。以下是我加的代码： 12345678910&lt;script&gt; (function()&#123; if(&apos;&#123;&#123; page.password &#125;&#125;&apos;)&#123; if (prompt(&apos;请输入文章密码&apos;,&apos;&apos;) !== &apos;&#123;&#123; page.password &#125;&#125;&apos;)&#123; alert(&apos;密码错误！&apos;); history.back(); &#125; &#125; &#125;)();&lt;/script&gt; 如果你好奇page.password是什么东西，那么恭喜你，你对 Hexo 的结构还是很熟悉的。page这个变量就是你在hexo new的时候生成文件中最顶部的东西，以下我给出这篇文章的头部参考： 1234567891011---title: Hexo文章简单加密访问date: 2016-12-01 10:45:29tags: hexocategories: 博客keywords: - Hexo - 加密description: 文章访问密码：passwordpassword: password--- 这样我们就好像使用静态页面完成了部分只有动态页面能完成的东西。 四、总结本来只是简单的纯静态页面，但是经历不断的更新和改进，便有了静态页面统计访问量的工具；有了静态页面添加评论的工具；甚至有了静态页面进行搜索的功能等等。个人想出来的静态页面加密功能根本算不上技术上的创新，只能说是一点小技巧的应用吧，小技巧也能迷惑住大家的眼睛，也算是喜事一件。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Hello World]]></title>
       <url>%2F2017%2F04%2F19%2Fhello-world%2F</url>
       <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
