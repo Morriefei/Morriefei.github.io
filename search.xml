@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[2020 Best Wishes]]></title>
+      <url>%2F2020%2F02%2F01%2F2020%20Best%20Wishes%2F</url>
+      <content type="text"><![CDATA[瑞鼠迎春送吉祥！ &lt;–more!–&gt; 在好友 Dear Florrie 酱的协助下完成了git config 用户名和邮箱的设置，并完成了 git log 中个人隐私信息的清理。 修改 git config 配置 123456789git config --listgit config --global user.name &quot;morriefei&quot;git config --global user.email &quot;morrie.fei@gmail.com&quot;git config --global unset &quot;credential.helper&quot; 清理 git log 敏感信息 简单粗暴方法：备份，重新push，删除原branch 遗留问题 hexo g -d 的时候，node_mode 缺省的报错，仍在解决中。 ​]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[wordpress部署博客]]></title>
       <url>%2F2017%2F09%2F11%2Fwordpress%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%2F</url>
       <content type="text"><![CDATA[万网购买域名，搬瓦工买服务器建数据库，搭建wordpress完毕。 个站：风声木]]></content>
