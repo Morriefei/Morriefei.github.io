@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[2020 Best Wishes]]></title>
       <url>%2F2020%2F02%2F01%2F2020%20Best%20Wishes%2F</url>
-      <content type="text"><![CDATA[瑞鼠迎春送吉祥！ 在好友 Dear Florrie 酱的协助下完成了git config 用户名和邮箱的设置，并完成了 git log 中个人隐私信息的清理。 修改 git config 配置 123456789git config --listgit config --global user.name &quot;morriefei&quot;git config --global user.email &quot;morrie.fei@gmail.com&quot;git config --global unset &quot;credential.helper&quot; 清理 git log 敏感信息 简单粗暴方法：备份，重新push，删除原branch 遗留问题 hexo g -d 的时候，node_mode 缺省的报错，仍在解决中。 ​]]></content>
+      <content type="text"><![CDATA[瑞鼠迎春送吉祥！ 在好友 Dear Florrie 酱的协助下完成了git config 用户名和邮箱的设置，并完成了 git log 中个人隐私信息的清理。 1. 修改 git config 配置123456789git config --listgit config --global user.name &quot;morriefei&quot;git config --global user.email &quot;morrie.fei@gmail.com&quot;git config --global unset &quot;credential.helper&quot; 2. 清理 git log 敏感信息简单粗暴方法：备份，重新push，删除原branch 12345678910111213git checkout --orphan latest_branchgit add -Agit commit -am &quot;auto&quot;git branch -D mastergit branch -m mastergit push -f origin master 3. 解决node_modules缺省hexo指令执行时一直报DTraceProvider的错误。 解决方案直接卸载掉这个模组： 123npm uninstall dtrace-provider 自此hexo重焕新生。 完成于对称日2020.02.02。]]></content>
     </entry>
 
     
