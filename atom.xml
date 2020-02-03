@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>风声木</title>
+  
+  <subtitle>林深人不知，明月来相照</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://morriefei.github.io/"/>
+  <updated>2020-02-03T11:22:11.778Z</updated>
+  <id>http://morriefei.github.io/</id>
+  
+  <author>
+    <name>云隐</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo 优化记录</title>
+    <link href="http://morriefei.github.io/2020/02/03/hexo%E4%BC%98%E5%8C%96%E8%AE%B0%E5%BD%95/"/>
+    <id>http://morriefei.github.io/2020/02/03/hexo%E4%BC%98%E5%8C%96%E8%AE%B0%E5%BD%95/</id>
+    <published>2020-02-03T07:26:07.000Z</published>
+    <updated>2020-02-03T11:22:11.778Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>看板娘、鼠标响应事件、可折叠内容</p></blockquote><p>折腾记录：</p><h2 id="1-添加看板娘"><a href="#1-添加看板娘" class="headerlink" title="1. 添加看板娘"></a>1. 添加看板娘</h2><blockquote><p>鸣谢：<a href="https://github.com/xiazeyu/live2d-widget-models" target="_blank" rel="noopener">xiazeyu</a></p></blockquote><p>Install seperated models</p><p>use <code>npm install {packagename}</code> The package name is the folder name in <code>packages/</code> We have:</p><ul><li><code>live2d-widget-model-chitose</code></li><li><code>live2d-widget-model-epsilon2_1</code></li><li><code>live2d-widget-model-gf</code></li><li><code>live2d-widget-model-haru/01</code> (use <code>npm install --save live2d-widget-model-haru</code>)</li><li><code>live2d-widget-model-haru/02</code> (use <code>npm install --save live2d-widget-model-haru</code>)</li><li><code>live2d-widget-model-haruto</code></li><li><code>live2d-widget-model-hibiki</code></li><li><code>live2d-widget-model-hijiki</code></li><li><code>live2d-widget-model-izumi</code></li><li><code>live2d-widget-model-koharu</code></li><li><code>live2d-widget-model-miku</code></li><li><code>live2d-widget-model-ni-j</code></li><li><code>live2d-widget-model-nico</code></li><li><code>live2d-widget-model-nietzsche</code></li><li><code>live2d-widget-model-nipsilon</code></li><li><code>live2d-widget-model-nito</code></li><li><code>live2d-widget-model-shizuku</code></li><li><code>live2d-widget-model-tororo</code></li><li><code>live2d-widget-model-tsumiki</code></li><li><code>live2d-widget-model-unitychan</code></li><li><code>live2d-widget-model-wanko</code></li><li><code>live2d-widget-model-z16</code></li></ul><hr><h2 id="2-添加鼠标点击事件"><a href="#2-添加鼠标点击事件" class="headerlink" title="2. 添加鼠标点击事件"></a>2. 添加鼠标点击事件</h2><blockquote><p>鸣谢：<a href="https://blog.csdn.net/nightmare_dimple/article/details/86661502" target="_blank" rel="noopener">nightmare_dimple</a></p></blockquote><p>在/themes/next/source/js/src下新建文件 clicklove.js ，接着把下面的代码拷贝粘贴到 clicklove.js 文件中：</p><pre><code class="javascript">!function(e,t,a){function n(){c(&quot;.heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: &#39;&#39;;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}&quot;),o(),r()}function r(){for(var e=0;e&lt;d.length;e++)d[e].alpha&lt;=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText=&quot;left:&quot;+d[e].x+&quot;px;top:&quot;+d[e].y+&quot;px;opacity:&quot;+d[e].alpha+&quot;;transform:scale(&quot;+d[e].scale+&quot;,&quot;+d[e].scale+&quot;) rotate(45deg);background:&quot;+d[e].color+&quot;;z-index:99999&quot;);requestAnimationFrame(r)}function o(){var t=&quot;function&quot;==typeof e.onclick&amp;&amp;e.onclick;e.onclick=function(e){t&amp;&amp;t(),i(e)}}function i(e){var a=t.createElement(&quot;div&quot;);a.className=&quot;heart&quot;,d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement(&quot;style&quot;);a.type=&quot;text/css&quot;;try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName(&quot;head&quot;)[0].appendChild(a)}function s(){return&quot;rgb(&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;)&quot;}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);</code></pre><p>在\themes\next\layout_layout.swig文件末尾添加：</p><pre><code class="javascript">&lt;!-- 页面点击小红心 --&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/clicklove.js&quot;&gt;&lt;/script&gt;</code></pre><p><img src="https://blogdata-1258545379.cos.ap-shanghai.myqcloud.com/20190124/5308475-78e64c0a80bb559e.gif" alt="img"></p><p>跟那个红心是差不多的，首先在<code>themes/next/source/js/src</code>里面建一个叫<code>fireworks.js</code>的文件，代码如下：</p><pre><code class="javascript">&quot;use strict&quot;;function updateCoords(e){pointerX=(e.clientX||e.touches[0].clientX)-canvasEl.getBoundingClientRect().left,pointerY=e.clientY||e.touches[0].clientY-canvasEl.getBoundingClientRect().top}function setParticuleDirection(e){var t=anime.random(0,360)*Math.PI/180,a=anime.random(50,180),n=[-1,1][anime.random(0,1)]*a;return{x:e.x+n*Math.cos(t),y:e.y+n*Math.sin(t)}}function createParticule(e,t){var a={};return a.x=e,a.y=t,a.color=colors[anime.random(0,colors.length-1)],a.radius=anime.random(16,32),a.endPos=setParticuleDirection(a),a.draw=function(){ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.fillStyle=a.color,ctx.fill()},a}function createCircle(e,t){var a={};return a.x=e,a.y=t,a.color=&quot;#F00&quot;,a.radius=0.1,a.alpha=0.5,a.lineWidth=6,a.draw=function(){ctx.globalAlpha=a.alpha,ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.lineWidth=a.lineWidth,ctx.strokeStyle=a.color,ctx.stroke(),ctx.globalAlpha=1},a}function renderParticule(e){for(var t=0;t&lt;e.animatables.length;t++){e.animatables[t].target.draw()}}function animateParticules(e,t){for(var a=createCircle(e,t),n=[],i=0;i&lt;numberOfParticules;i++){n.push(createParticule(e,t))}anime.timeline().add({targets:n,x:function(e){return e.endPos.x},y:function(e){return e.endPos.y},radius:0.1,duration:anime.random(1200,1800),easing:&quot;easeOutExpo&quot;,update:renderParticule}).add({targets:a,radius:anime.random(80,160),lineWidth:0,alpha:{value:0,easing:&quot;linear&quot;,duration:anime.random(600,800)},duration:anime.random(1200,1800),easing:&quot;easeOutExpo&quot;,update:renderParticule,offset:0})}function debounce(e,t){var a;return function(){var n=this,i=arguments;clearTimeout(a),a=setTimeout(function(){e.apply(n,i)},t)}}var canvasEl=document.querySelector(&quot;.fireworks&quot;);if(canvasEl){var ctx=canvasEl.getContext(&quot;2d&quot;),numberOfParticules=30,pointerX=0,pointerY=0,tap=&quot;mousedown&quot;,colors=[&quot;#FF1461&quot;,&quot;#18FF92&quot;,&quot;#5A87FF&quot;,&quot;#FBF38C&quot;],setCanvasSize=debounce(function(){canvasEl.width=2*window.innerWidth,canvasEl.height=2*window.innerHeight,canvasEl.style.width=window.innerWidth+&quot;px&quot;,canvasEl.style.height=window.innerHeight+&quot;px&quot;,canvasEl.getContext(&quot;2d&quot;).scale(2,2)},500),render=anime({duration:1/0,update:function(){ctx.clearRect(0,0,canvasEl.width,canvasEl.height)}});document.addEventListener(tap,function(e){&quot;sidebar&quot;!==e.target.id&amp;&amp;&quot;toggle-sidebar&quot;!==e.target.id&amp;&amp;&quot;A&quot;!==e.target.nodeName&amp;&amp;&quot;IMG&quot;!==e.target.nodeName&amp;&amp;(render.play(),updateCoords(e),animateParticules(pointerX,pointerY))},!1),setCanvasSize(),window.addEventListener(&quot;resize&quot;,setCanvasSize,!1)}&quot;use strict&quot;;function updateCoords(e){pointerX=(e.clientX||e.touches[0].clientX)-canvasEl.getBoundingClientRect().left,pointerY=e.clientY||e.touches[0].clientY-canvasEl.getBoundingClientRect().top}function setParticuleDirection(e){var t=anime.random(0,360)*Math.PI/180,a=anime.random(50,180),n=[-1,1][anime.random(0,1)]*a;return{x:e.x+n*Math.cos(t),y:e.y+n*Math.sin(t)}}function createParticule(e,t){var a={};return a.x=e,a.y=t,a.color=colors[anime.random(0,colors.length-1)],a.radius=anime.random(16,32),a.endPos=setParticuleDirection(a),a.draw=function(){ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.fillStyle=a.color,ctx.fill()},a}function createCircle(e,t){var a={};return a.x=e,a.y=t,a.color=&quot;#F00&quot;,a.radius=0.1,a.alpha=0.5,a.lineWidth=6,a.draw=function(){ctx.globalAlpha=a.alpha,ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.lineWidth=a.lineWidth,ctx.strokeStyle=a.color,ctx.stroke(),ctx.globalAlpha=1},a}function renderParticule(e){for(var t=0;t&lt;e.animatables.length;t++){e.animatables[t].target.draw()}}function animateParticules(e,t){for(var a=createCircle(e,t),n=[],i=0;i&lt;numberOfParticules;i++){n.push(createParticule(e,t))}anime.timeline().add({targets:n,x:function(e){return e.endPos.x},y:function(e){return e.endPos.y},radius:0.1,duration:anime.random(1200,1800),easing:&quot;easeOutExpo&quot;,update:renderParticule}).add({targets:a,radius:anime.random(80,160),lineWidth:0,alpha:{value:0,easing:&quot;linear&quot;,duration:anime.random(600,800)},duration:anime.random(1200,1800),easing:&quot;easeOutExpo&quot;,update:renderParticule,offset:0})}function debounce(e,t){var a;return function(){var n=this,i=arguments;clearTimeout(a),a=setTimeout(function(){e.apply(n,i)},t)}}var canvasEl=document.querySelector(&quot;.fireworks&quot;);if(canvasEl){var ctx=canvasEl.getContext(&quot;2d&quot;),numberOfParticules=30,pointerX=0,pointerY=0,tap=&quot;mousedown&quot;,colors=[&quot;#FF1461&quot;,&quot;#18FF92&quot;,&quot;#5A87FF&quot;,&quot;#FBF38C&quot;],setCanvasSize=debounce(function(){canvasEl.width=2*window.innerWidth,canvasEl.height=2*window.innerHeight,canvasEl.style.width=window.innerWidth+&quot;px&quot;,canvasEl.style.height=window.innerHeight+&quot;px&quot;,canvasEl.getContext(&quot;2d&quot;).scale(2,2)},500),render=anime({duration:1/0,update:function(){ctx.clearRect(0,0,canvasEl.width,canvasEl.height)}});document.addEventListener(tap,function(e){&quot;sidebar&quot;!==e.target.id&amp;&amp;&quot;toggle-sidebar&quot;!==e.target.id&amp;&amp;&quot;A&quot;!==e.target.nodeName&amp;&amp;&quot;IMG&quot;!==e.target.nodeName&amp;&amp;(render.play(),updateCoords(e),animateParticules(pointerX,pointerY))},!1),setCanvasSize(),window.addEventListener(&quot;resize&quot;,setCanvasSize,!1)};</code></pre><p>打开<code>themes/next/layout/_layout.swig</code>,在上面写下如下代码：</p><pre><code class="javascript">{% if theme.fireworks %}   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>    <script type="text/javascript" src="/js/src/fireworks.js"></script>{% endif %}</code></pre><p>打开主题配置文件，在里面最后写下：</p><pre><code class="javascript"># Fireworksfireworks: true</code></pre><p><img src="https://blogdata-1258545379.cos.ap-shanghai.myqcloud.com/20190124/2017-12-18-084649.png" alt="img" style="zoom:25%;"></p><div><div class="fold_hider"><div class="close hider_title">hexo主题配置文件说明</div></div><div class="fold"><p>在Hexo中有两个很重要的名为<code>_config.yml</code>的文件，其中一个在站点安装的根目录下，另一个在主题目录下。前者提供了Hexo自身的一些基本配置信息，后者为你所安装的主题的相关配置。为了方便区分，我们把前者称为<strong>站点配置文件</strong>，后者称为<strong>主题配置文件</strong>。</p></div></div><hr><h2 id="3-添加可折叠的代码块"><a href="#3-添加可折叠的代码块" class="headerlink" title="3. 添加可折叠的代码块"></a>3. 添加可折叠的代码块</h2><blockquote><p>鸣谢：<a href="https://blog.rmiao.top/hexo-fold-block/" target="_blank" rel="noopener">Ryan Miao</a></p></blockquote><div><div class="fold_hider"><div class="close hider_title">点击显/隐内容</div></div><div class="fold"><p><strong>1）在main.js中添加折叠js</strong></p><p>next主题的主要js位于<code>themes/next/source/js/src/post-details.js</code>,<br>在里面找合适的位置，添加如下代码：</p><pre><code class="javascript">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{    $(<span class="built_in">document</span>).on(<span class="string">'click'</span>, <span class="string">'.fold_hider'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{        $(<span class="string">'&gt;.fold'</span>, <span class="keyword">this</span>.parentNode).slideToggle();        $(<span class="string">'&gt;:first'</span>, <span class="keyword">this</span>).toggleClass(<span class="string">'open'</span>);    });    <span class="comment">//默认情况下折叠</span>    $(<span class="string">"div.fold"</span>).css(<span class="string">"display"</span>,<span class="string">"none"</span>);});</code></pre><p><strong>2) 自定义内建标签</strong></p><p>在主题<code>scripts</code>下添加一个<code>tags.js</code>, 位于<code>themes/next/scripts/tags.js</code></p><pre><code>/*  @haohuawu  修复 Nunjucks 的 tag 里写 ```代码块```，最终都会渲染成 undefined 的问题  https://github.com/hexojs/hexo/issues/2400*/const rEscapeContent = /&lt;escape(?:[^&gt;]*)&gt;([\s\S]*?)&lt;\/escape&gt;/g;const placeholder = &apos;\uFFFD&apos;;const rPlaceholder = /(?:&lt;|&amp;lt;)\!--\uFFFD(\d+)--(?:&gt;|&amp;gt;)/g;const cache = [];function escapeContent(str) {  return &apos;&lt;!--&apos; + placeholder + (cache.push(str) - 1) + &apos;--&gt;&apos;;}hexo.extend.filter.register(&apos;before_post_render&apos;, function(data) {  data.content = data.content.replace(rEscapeContent, function(match, content) {    return escapeContent(content);  });  return data;});hexo.extend.filter.register(&apos;after_post_render&apos;, function(data) {  data.content = data.content.replace(rPlaceholder, function() {    return cache[arguments[1]];  });  return data;});</code></pre><p>再继续添加一个<code>fold.js</code></p><p><code>`</code>javascript<br>/<em> global hexo </em>/<br>// Usage: <div><div class="fold_hider"><div class="close hider_title">????</div></div><div class="fold"></div></div></p><p>Something </p><p></p></div></div><p></p><p></p><p>function fold (args, content) {<br>    var text = args[0];<br>    if(!text) text = “点击显/隐”;<br>    return ‘<div><div class="fold_hider"><div class="close hider_title">‘ + text + ‘</div></div><div class="fold">\n’ + hexo.render.renderSync({text: content, engine: ‘markdown’}) + ‘\n</div></div>‘;<br>}<br>hexo.extend.tag.register(‘fold’, fold, {ends: true});</p><br><pre><code>最后，添加几个自定义样式，位置`themes/next/source/css/_custom/custom.styl````javascript.hider_title{    font-family: &quot;Microsoft Yahei&quot;;    cursor: pointer;}.close:after{    content: &quot;▼&quot;;}.open:after{    content: &quot;▲&quot;;}</code></pre><p>最后，在我们需要折叠的地方前后添加便签，示例用法：</p><br><pre><code class="javascript">{% fold 点击显/隐内容 %}something you want to fold, include code block.{% endfold %}</code></pre><p></p><div><div class="fold_hider"><div class="close hider_title">Hexo的一个小BUG</div></div><div class="fold"><blockquote><p>鸣谢：<a href="https://www.jianshu.com/p/738ebe02029b" target="_blank" rel="noopener">youngiyang_打码少年</a></p></blockquote><p>Template render error：</p><p>当文章中有<code>}}</code>时,且这两个括号未被代码块包含，解析会出问题。</p><p>解决方法：</p><pre><code>含有大括号的内容。</code></pre></div></div><hr><h2 id="4-配置版权"><a href="#4-配置版权" class="headerlink" title="4. 配置版权"></a>4. 配置版权</h2><pre><code class="javascript">footer:  # Specify the date when the site was setup.  # If not defined, current year will be used.  since: 2019 #建站时间  # Icon between year and copyright info.  icon:    # Icon name in fontawesome, see: https://fontawesome.com/v4.7.0/icons/    # `heart` is recommended with animation in red (#ff0000).    name: heart  #作者图标（默认是author人像)    # If you want to animate the icon, set it to true.    animated: true #图标是否闪动    # Change the color of icon, using Hex Code.    color: &quot;#808080&quot; #图标颜色  # If not defined, `author` from Hexo main config will be used.  copyright: yourname #别填bool型，最后显示的东西是copyright || author，即左边没有设置的话就显示作者  # -------------------------------------------------------------  powered:    # Hexo link (Powered by Hexo).    enable: false #是否显示 Powered by hexo    # Version info of Hexo after Hexo link (vX.X.X).    version: false #是否显示Hexo版本  theme:    # Theme &amp; scheme info link (Theme - NexT.scheme).    enable: false #是否显示主题信息    # Version info of NexT after scheme info (vX.X.X).    version: false #是否显示主题版本  # -------------------------------------------------------------  # Beian icp information for Chinese users. In China, every legal website should have a beian icp in website footer.  # http://www.miitbeian.gov.cn  beian:    enable: false #是否显示网站备案信息    icp:</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;看板娘、鼠标响应事件、可折叠内容&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;折腾记录：&lt;/p&gt;
+&lt;h2 id=&quot;1-添加看板娘&quot;&gt;&lt;a href=&quot;#1-添加看板娘&quot; class=&quot;headerlink&quot; title=&quot;1. 添加看板娘&quot;&gt;&lt;/a&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="搭建博客" scheme="http://morriefei.github.io/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="hexo" scheme="http://morriefei.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020 Best Wishes</title>
+    <link href="http://morriefei.github.io/2020/02/01/2020%20Best%20Wishes/"/>
+    <id>http://morriefei.github.io/2020/02/01/2020%20Best%20Wishes/</id>
+    <published>2020-02-01T03:43:11.000Z</published>
+    <updated>2020-02-02T13:12:31.756Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>瑞鼠迎春送吉祥！</p></blockquote><a id="more"></a><p>在好友 Dear Florrie 酱的协助下完成了git config 用户名和邮箱的设置，并完成了 git log 中个人隐私信息的清理。</p><h2 id="1-修改-git-config-配置"><a href="#1-修改-git-config-配置" class="headerlink" title="1. 修改 git config 配置"></a>1. 修改 git config 配置</h2><pre><code>git config --listgit config --global user.name &quot;morriefei&quot;git config --global user.email &quot;morrie.fei@gmail.com&quot;git config --global unset &quot;credential.helper&quot;</code></pre><h2 id="2-清理-git-log-敏感信息"><a href="#2-清理-git-log-敏感信息" class="headerlink" title="2. 清理 git log 敏感信息"></a>2. 清理 git log 敏感信息</h2><p>简单粗暴方法：备份，重新push，删除原branch</p><pre><code>git checkout --orphan latest_branchgit add -Agit commit -am &quot;auto&quot;git branch -D mastergit branch -m mastergit push -f origin master</code></pre><h2 id="3-解决node-modules缺省"><a href="#3-解决node-modules缺省" class="headerlink" title="3. 解决node_modules缺省"></a>3. 解决node_modules缺省</h2><p>hexo指令执行时一直报DTraceProvider的错误。</p><p>解决方案直接卸载掉这个模组：</p><pre><code>npm uninstall dtrace-provider</code></pre><p>自此hexo重焕新生。</p><p>完成于对称日2020.02.02。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;瑞鼠迎春送吉祥！&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="风物长宜放眼量" scheme="http://morriefei.github.io/categories/%E9%A3%8E%E7%89%A9%E9%95%BF%E5%AE%9C%E6%94%BE%E7%9C%BC%E9%87%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>wordpress部署博客</title>
+    <link href="http://morriefei.github.io/2017/09/11/wordpress%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://morriefei.github.io/2017/09/11/wordpress%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/</id>
+    <published>2017-09-11T15:19:56.000Z</published>
+    <updated>2020-02-03T02:42:19.311Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>万网购买域名，搬瓦工买服务器建数据库，搭建wordpress完毕。</p></blockquote><p>个站：<a href="http://fengshengmu.com" target="_blank" rel="noopener">风声木</a></p><a id="more"></a><p>2020.02.02 升级折腾记：</p><h3 id="1-后台用lnmp升级php7，mySQL无法启动。"><a href="#1-后台用lnmp升级php7，mySQL无法启动。" class="headerlink" title="1. 后台用lnmp升级php7，mySQL无法启动。"></a>1. 后台用lnmp升级php7，mySQL无法启动。</h3><blockquote><p>鸣谢：Joey</p></blockquote><pre><code>cd &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;support-files&#x2F;cp &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;support-files&#x2F;mysql.server &#x2F;etc&#x2F;init.d&#x2F;mysqld&#x2F;etc&#x2F;init.d&#x2F;mysqld startps -ef|grep mysqld &#x2F;&#x2F;确认一下有没有启动成功</code></pre><h3 id="2-升级php7后，原phpmysql无法使用。"><a href="#2-升级php7后，原phpmysql无法使用。" class="headerlink" title="2. 升级php7后，原phpmysql无法使用。"></a>2. 升级php7后，原phpmysql无法使用。</h3><p>需下载php70w-mysql。</p><blockquote><p>鸣谢：Florrie</p></blockquote><pre><code>yum updateyum install epel-releaserpm -Uvh https:&#x2F;&#x2F;mirror.webstatic.com&#x2F;yum&#x2F;el6&#x2F;latest.rpmyum install php70w-mysql</code></pre><h3 id="3-登录wp-admin后提示“无法连接数据库”。"><a href="#3-登录wp-admin后提示“无法连接数据库”。" class="headerlink" title="3. 登录wp-admin后提示“无法连接数据库”。"></a>3. 登录wp-admin后提示“无法连接数据库”。</h3><p>需修改wordpress目录下wp-config.php配置。将localhost改为127.0.0.1。</p><blockquote><p>鸣谢：<a href="blog.csdn.net/weixin_38207457/article/details/78127057">水果真好吃</a></p></blockquote><pre><code>vi &#x2F;home&#x2F;wwwroot&#x2F;域名&#x2F;wp-config.phpdefine(&#39;DB_HOST&#39;, &#39;localhost&#39;)修改为 define(&#39;DB_HOST&#39;, &#39;127.0.0.1&#39;):wqlnmp stop &amp;&amp; lnmp start</code></pre><h3 id="4-登录网站后始终显示lnmp默认安装页面。"><a href="#4-登录网站后始终显示lnmp默认安装页面。" class="headerlink" title="4. 登录网站后始终显示lnmp默认安装页面。"></a>4. 登录网站后始终显示lnmp默认安装页面。</h3><p>修改nginx配置，清除网页缓存。</p><blockquote><p>鸣谢：<a href="blog.csdn.net/DZRYWYBL/article/details/81265960">Somnus陵</a></p></blockquote><p>nginx配置路径：</p><p>/usr/local/nginx/conf/nginx.conf</p><p>vhost配置路径：</p><p>/usr/local/nginx/conf/vhost/域名.conf</p><p>自此wordpress重焕新生。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;万网购买域名，搬瓦工买服务器建数据库，搭建wordpress完毕。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;个站：&lt;a href=&quot;http://fengshengmu.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;风声木&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="搭建博客" scheme="http://morriefei.github.io/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="wordpress" scheme="http://morriefei.github.io/tags/wordpress/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设置 SSH 使用 hexo deploy 时免输用户名密码</title>
+    <link href="http://morriefei.github.io/2017/04/23/%E8%AE%BE%E7%BD%AE-SSH-%E4%BD%BF%E7%94%A8-hexo-deploy%E6%97%B6%E5%85%8D%E8%BE%93%E7%94%A8%E6%88%B7%E5%90%8D%E5%AF%86%E7%A0%81/"/>
+    <id>http://morriefei.github.io/2017/04/23/%E8%AE%BE%E7%BD%AE-SSH-%E4%BD%BF%E7%94%A8-hexo-deploy%E6%97%B6%E5%85%8D%E8%BE%93%E7%94%A8%E6%88%B7%E5%90%8D%E5%AF%86%E7%A0%81/</id>
+    <published>2017-04-23T13:14:47.000Z</published>
+    <updated>2017-04-23T13:18:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>出处：<a href="https://segmentfault.com/a/1190000005125610" target="_blank" rel="noopener">chenjianhua</a></p></blockquote><a id="more"></a><h2 id="生成-SSH-密钥"><a href="#生成-SSH-密钥" class="headerlink" title="生成 SSH 密钥"></a>生成 SSH 密钥</h2><p>首先打开命令行工具，通常我们可以直接右键鼠标任意位置打开 <code>Git Bash Here</code>，然后输入以下命令</p><pre><code>$ cd ~/.ssh# Checks to see if there is a directory named &quot;.ssh&quot; in your user directory</code></pre><p>使用 <code>ssh-keygen</code> 生成密钥</p><pre><code>$ ssh-keygen -t rsa -C &quot;your_email@example.com&quot;# Creates a new ssh key using the provided emailGenerating public/private rsa key pair.Enter file in which to save the key (/home/you/.ssh/id_rsa):</code></pre><p>使用默认的文件名直接enter，接下来显示如下</p><pre><code>Enter passphrase (empty for no passphrase): [Type a passphrase]Enter same passphrase again: [Type passphrase again]</code></pre><p>按提示输入密码即可（简化流程的话在键入命令 <code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code> 以后的三次提示输入都可以直接回车跳过）。</p><p>密钥生成成功</p><pre><code>Your identification has been saved in /home/you/.ssh/id_rsa.Your public key has been saved in /home/you/.ssh/id_rsa.pub.The key fingerprint is:…………………此处是密钥内容…………………… your_email@example.com</code></pre><h2 id="设置-Github-项目的-Deploy-keys"><a href="#设置-Github-项目的-Deploy-keys" class="headerlink" title="设置 Github 项目的 Deploy keys"></a>设置 Github 项目的 Deploy keys</h2><p>可以选择是在用户设置中添加密钥（Settings –&gt; SSH GPG keys）还是单个项目中添加密钥，在这里我就在我们的博客项目中添加密钥，此处以我的博客为例。<br>在 <code>chengjianhua.github.io</code> 的首页菜单栏中点击 <strong>Settings –&gt; Deploy keys –&gt; Add deploy key</strong>，然后将生成的 <code>id_rsa.pub</code> 中的内容全选复制到 <strong>key</strong> 输入框中，然后点击 <strong>Add key</strong> 完成添加公钥。</p><p>接下来测试配置是否成功</p><pre><code>$ ssh -T git@github.com</code></pre><p>如果出现以下内容即表示配置完成并且成功！</p><pre><code>Hi username! You&#39;ve successfully authenticated, but GitHub does notprovide shell access.</code></pre><h2 id="设置博客的提交地址"><a href="#设置博客的提交地址" class="headerlink" title="设置博客的提交地址"></a>设置博客的提交地址</h2><p>到了这一个步骤和大家在网上搜到的其他教程就不一样了，网上的这一步就是设置</p><pre><code># 切入到包含 .git 文件夹的文件夹$ cd .deploy/# 查看当前的传输协议$ git remote -vorigin  https://github.com/USERNAME/REPOSITORY.git (fetch)origin  https://github.com/USERNAME/REPOSITORY.git (push)# 修改 https 协议为 ssh 协议$ git remote set-url origin git@github.com:USERNAME/REPOSITORY2.git</code></pre><p>但是我根据网上的并没有用。更别提我的 blog 文件夹中包含 <code>.git</code> 文件夹的文件夹（好绕啊……）名字是 <code>.deploy_git</code> 了。还有我输入 <code>$ git remote -v</code> 时的显示结果为空，我尝试过自己添加 <code>$ git remote add origin git@github.com:chengjianhua/chengjianhua.github.io.git</code>,然后 <code>$ hexo deploy</code> 还是需要输入密码。</p><p><strong>解决办法出来了！</strong></p><p>在 <code>hexo deploy</code> 的控制台输出结果中我看到了链接仍然是 <code>https</code> 的链接，这时我想到了 <code>hexo</code> 的配置文件 <code>_config.yml</code> 中的 <code>deploy</code> 属性。</p><pre><code>deploy:  type: git  repo: git@github.com:chengjianhua/chengjianhua.github.io.git  branch: master</code></pre><p>我将其中的 <code>repo</code>修改成了<a href="mailto:`git@github.com" target="_blank" rel="noopener">`git@github.com</a>:chengjianhua/chengjianhua.github.io.git<code>，这个时候我再尝试了</code>$ hexo deploy` 果然成功了，就不用输入密码了！</p><p>到此我的解决方法已经完成了，希望能帮到使用 <code>hexo</code> 的同学们~</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;出处：&lt;a href=&quot;https://segmentfault.com/a/1190000005125610&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;chenjianhua&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="搭建博客" scheme="http://morriefei.github.io/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="hexo" scheme="http://morriefei.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Personal Blog Solutions</title>
+    <link href="http://morriefei.github.io/2017/04/21/personal-blog-solutions/"/>
+    <id>http://morriefei.github.io/2017/04/21/personal-blog-solutions/</id>
+    <published>2017-04-21T03:00:30.000Z</published>
+    <updated>2017-04-23T13:13:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>关于搭建personal blog，手段可谓繁多。</p></blockquote><a id="more"></a><h3 id="一、博客程序"><a href="#一、博客程序" class="headerlink" title="一、博客程序"></a>一、博客程序</h3><blockquote><p>FarBox、Jekyll、Octopress、ghost、marboo、Hexo、Medium、Logdown、prose.io、Scriptogr、Calepin、Wordpress</p></blockquote><p><a href="https://www.farbox.com" target="_blank" rel="noopener">Farbox</a><br><a href="http://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a><br><a href>Octopress</a><br><a href>ghost</a><br><a href>marboo</a></p><h3 id="二、博客站点"><a href="#二、博客站点" class="headerlink" title="二、博客站点"></a>二、博客站点</h3><blockquote><p>Lofter、blogbus、不老歌</p></blockquote><p><a href="http://lofter.com" target="_blank" rel="noopener">lofter</a><br><a href="http://www.blogbus.com" target="_blank" rel="noopener">blogbus</a><br><a href="bulaoge.cn">不老歌</a></p><h3 id="三、Wiki应用"><a href="#三、Wiki应用" class="headerlink" title="三、Wiki应用"></a>三、Wiki应用</h3><blockquote><p>zim、tiddlywiki、weavi</p></blockquote><p><a href="http://zim-wiki.org" target="_blank" rel="noopener">zimwiki</a><br><a href="http://tiddlywiki.com" target="_blank" rel="noopener">tiddlywiki</a><br><a href="http://weavi.com" target="_blank" rel="noopener">Weavi</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;关于搭建personal blog，手段可谓繁多。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="搭建博客" scheme="http://morriefei.github.io/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="product" scheme="http://morriefei.github.io/tags/product/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo文章简单加密访问</title>
+    <link href="http://morriefei.github.io/2017/04/20/Hexo%E6%96%87%E7%AB%A0%E7%AE%80%E5%8D%95%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE/"/>
+    <id>http://morriefei.github.io/2017/04/20/Hexo%E6%96%87%E7%AB%A0%E7%AE%80%E5%8D%95%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE/</id>
+    <published>2017-04-20T13:38:42.000Z</published>
+    <updated>2017-04-21T02:34:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>即使是最简单的密码功能也足以阻止90%的访问者</p></blockquote><a id="more"></a><h1 id="Hexo文章简单加密访问"><a href="#Hexo文章简单加密访问" class="headerlink" title="Hexo文章简单加密访问"></a>Hexo文章简单加密访问</h1><p>出处：<a href="https://lancelot_lewis.coding.me/2016/12/01/blog/hexo-password/" target="_blank" rel="noopener">https://lancelot_lewis.coding.me/2016/12/01/blog/hexo-password/</a></p><h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>一开始使用Hexo的时候，是喜欢它的简单：因为可以直接编译成纯静态文件，方便部署。可是在使用过程中，又发现诸多不便：也因为它全是纯静态页面。突发奇想，能不能给文章加上一个加密访问的功能……</p><p>在经过实践之后，运用到自己博客中，发现有不少的访客对这个功能甚是感兴趣，所以也就在这里找个时间写写自己加密的小诀窍吧算是。</p><h3 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a>二、原理</h3><p>由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？</p><p>这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用<code>alert();</code>函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是<code>alert</code>只有提醒的功能，没有输入的功能，所以这里要用到的是<code>promt</code>函数。例子参见如下：</p><pre><code>var password = promt(&#39;请输入文章密码&#39;);alert(password);</code></pre><h3 id="三、实践"><a href="#三、实践" class="headerlink" title="三、实践"></a>三、实践</h3><p>究竟要把上述代码加在哪里呢？<br>找到<code>themes-&gt;next-&gt;layout-&gt;_partials-&gt;head.swig</code>文件。<br>按道理是添加在任何地方都行，但是推荐加在所有的<code>&lt;meta&gt;</code>标签之后，个人建议，仅做参考。以下是我加的代码：</p><pre><code>&lt;script&gt;    (function(){        if(&#39;{{ page.password }}&#39;){            if (prompt(&#39;请输入文章密码&#39;,&#39;&#39;) !== &#39;{{ page.password }}&#39;){                alert(&#39;密码错误！&#39;);                history.back();            }        }    })();&lt;/script&gt;</code></pre><p>如果你好奇<code>page.password</code>是什么东西，那么恭喜你，你对 Hexo 的结构还是很熟悉的。<code>page</code>这个变量就是你在<code>hexo new</code>的时候生成文件中最顶部的东西，以下我给出这篇文章的头部参考：</p><pre><code>---title: Hexo文章简单加密访问date: 2016-12-01 10:45:29tags: hexocategories: 博客keywords:    - Hexo    - 加密description: 文章访问密码：passwordpassword: password---</code></pre><p>这样我们就好像使用静态页面完成了部分只有动态页面能完成的东西。</p><h3 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h3><p>本来只是简单的纯静态页面，但是经历不断的更新和改进，便有了静态页面统计访问量的工具；有了静态页面添加评论的工具；甚至有了静态页面进行搜索的功能等等。个人想出来的静态页面加密功能根本算不上技术上的创新，只能说是一点小技巧的应用吧，小技巧也能迷惑住大家的眼睛，也算是喜事一件。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;即使是最简单的密码功能也足以阻止90%的访问者&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="搭建博客" scheme="http://morriefei.github.io/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="hexo" scheme="http://morriefei.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://morriefei.github.io/2017/04/19/hello-world/"/>
+    <id>http://morriefei.github.io/2017/04/19/hello-world/</id>
+    <published>2017-04-18T16:00:00.000Z</published>
+    <updated>2017-04-19T05:36:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+      <category term="搭建博客" scheme="http://morriefei.github.io/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="hexo" scheme="http://morriefei.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>
