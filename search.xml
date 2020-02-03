@@ -12,7 +12,7 @@
     <entry>
       <title><![CDATA[wordpress部署博客]]></title>
       <url>%2F2017%2F09%2F11%2Fwordpress%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%2F</url>
-      <content type="text"><![CDATA[万网购买域名，搬瓦工买服务器建数据库，搭建wordpress完毕。 个站：风声木]]></content>
+      <content type="text"><![CDATA[万网购买域名，搬瓦工买服务器建数据库，搭建wordpress完毕。 个站：风声木 2020.02.02 升级折腾记： 后台用lnmp升级php7，mySQL无法启动。 鸣谢：Joey 1234567891011cd /usr/local/mysql/support-files/cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld/etc/init.d/mysqld startps -ef|grep mysqld //确认一下有没有启动成功 启动成功截图： 升级php7后，原phpmysql无法使用。需下载php70w-mysql。 鸣谢：Florrie 123456789yum updateyum install epel-releaserpm -Uvh https://mirror.webstatic.com/yum/el6/latest.rpmyum install php70w-mysql 登录wp-admin后提示“无法连接数据库”。需修改wordpress目录下wp-config.php配置。将localhost改为127.0.0.1。 鸣谢：水果真好吃 1234567891011vi /home/wwwroot/域名/wp-config.phpdefine('DB_HOST', 'localhost')修改为 define('DB_HOST', '127.0.0.1'):wqlnmp stop &amp;&amp; lnmp start 登录网站后始终显示，修改nginx配置，清除网页缓存。 鸣谢：Somnus陵 nginx配置路径： /usr/local/nginx/conf/nginx.conf vhost配置路径： /usr/local/nginx/conf/vhost/域名.conf 自此wordpress重焕新生。]]></content>
     </entry>
 
     

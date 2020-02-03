@@ -95,10 +95,12 @@
 <meta property="og:site_name" content="风声木">
 <meta property="og:description" content="万网购买域名，搬瓦工买服务器建数据库，搭建wordpress完毕。  个站：风声木">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-11T15:29:01.000Z">
+<meta property="og:image" content="http://yoursite.com/Users/feijing/Library/Application%20Support/typora-user-images/image-20200203095947460.png">
+<meta property="og:updated_time" content="2020-02-03T02:16:36.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wordpress部署博客">
 <meta name="twitter:description" content="万网购买域名，搬瓦工买服务器建数据库，搭建wordpress完毕。  个站：风声木">
+<meta name="twitter:image" content="http://yoursite.com/Users/feijing/Library/Application%20Support/typora-user-images/image-20200203095947460.png">
 
 
 
@@ -402,6 +404,40 @@
 <p>万网购买域名，搬瓦工买服务器建数据库，搭建wordpress完毕。</p>
 </blockquote>
 <p>个站：<a href="http://fengshengmu.com" target="_blank" rel="noopener">风声木</a></p>
+<a id="more"></a>
+<p>2020.02.02 升级折腾记：</p>
+<ol>
+<li><p>后台用lnmp升级php7，mySQL无法启动。</p>
+<blockquote>
+<p>鸣谢：Joey</p>
+</blockquote>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cd /usr/local/mysql/support-files/</span><br><span class="line"></span><br><span class="line">cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld</span><br><span class="line"></span><br><span class="line">/etc/init.d/mysqld start</span><br><span class="line"></span><br><span class="line">ps -ef|grep mysqld </span><br><span class="line"></span><br><span class="line">//确认一下有没有启动成功</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>启动成功截图：</p>
+<p><img src="/Users/feijing/Library/Application Support/typora-user-images/image-20200203095947460.png" alt="image-20200203095947460"></p>
+</li>
+<li><p>升级php7后，原phpmysql无法使用。需下载php70w-mysql。</p>
+<blockquote>
+<p>鸣谢：Florrie</p>
+</blockquote>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">yum update</span><br><span class="line"></span><br><span class="line">yum install epel-release</span><br><span class="line"></span><br><span class="line">rpm -Uvh https://mirror.webstatic.com/yum/el6/latest.rpm</span><br><span class="line"></span><br><span class="line">yum install php70w-mysql</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录wp-admin后提示“无法连接数据库”。需修改wordpress目录下wp-config.php配置。将localhost改为127.0.0.1。</p>
+<blockquote>
+<p>鸣谢：<a href="blog.csdn.net/weixin_38207457/article/details/78127057">水果真好吃</a></p>
+</blockquote>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">vi /home/wwwroot/域名/wp-config.php</span><br><span class="line"></span><br><span class="line">define('DB_HOST', 'localhost')</span><br><span class="line"></span><br><span class="line">修改为 define('DB_HOST', '127.0.0.1')</span><br><span class="line"></span><br><span class="line">:wq</span><br><span class="line"></span><br><span class="line">lnmp stop &amp;&amp; lnmp start</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录网站后始终显示，修改nginx配置，清除网页缓存。</p>
+<blockquote>
+<p>鸣谢：<a href="blog.csdn.net/DZRYWYBL/article/details/81265960">Somnus陵</a></p>
+</blockquote>
+<p>nginx配置路径：</p>
+<p>/usr/local/nginx/conf/nginx.conf</p>
+<p>vhost配置路径：</p>
+<p>/usr/local/nginx/conf/vhost/域名.conf</p>
+</li>
+</ol>
+<p>自此wordpress重焕新生。</p>
 
       
     </div>
