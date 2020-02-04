@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|超世纪中仿宋:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
@@ -56,7 +56,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://blogdata-1258545379.cos.ap-shanghai.myqcloud.com/20190124/5308475-78e64c0a80bb559e.gif">
 <meta property="og:image" content="https://blogdata-1258545379.cos.ap-shanghai.myqcloud.com/20190124/2017-12-18-084649.png">
-<meta property="og:updated_time" content="2020-02-03T14:00:22.572Z">
+<meta property="og:updated_time" content="2020-02-04T14:09:45.365Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo 优化记录">
 <meta name="twitter:description" content="看板娘、鼠标响应事件、可折叠内容">
@@ -159,7 +159,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">7</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">8</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -426,7 +426,7 @@ something you want to fold, include code block.
 <p>鸣谢：<a href="https://www.jianshu.com/p/738ebe02029b" target="_blank" rel="noopener">youngiyang_打码少年</a></p>
 </blockquote>
 <p>Template render error：</p>
-<p>当文章中有<code>}}</code>时,且这两个括号未被代码块包含，解析会出问题。</p>
+<p>！当文章中有<code>}}</code>时,且这两个括号未被代码块包含，解析会出问题。</p>
 <p>解决方法：</p>
 <pre><code>
 
@@ -472,6 +472,19 @@ something you want to fold, include code block.
     enable: false #是否显示网站备案信息
     icp:
 </code></pre>
+<hr>
+<h2 id="5-配置评论系统Valine"><a href="#5-配置评论系统Valine" class="headerlink" title="5. 配置评论系统Valine"></a>5. 配置评论系统Valine</h2><hr>
+<h2 id="6-配置字数统计"><a href="#6-配置字数统计" class="headerlink" title="6. 配置字数统计"></a>6. 配置字数统计</h2><h2 id="7-其它优化内容"><a href="#7-其它优化内容" class="headerlink" title="7. 其它优化内容"></a>7. 其它优化内容</h2><blockquote>
+<p>鸣谢：</p>
+</blockquote>
+<hr>
+<ul>
+<li><h2 id="8-What’s-more"><a href="#8-What’s-more" class="headerlink" title="8. What’s more"></a>8. What’s more</h2></li>
+</ul>
+<blockquote>
+<p>刚折腾完 NexT 6.x 的配置，赫然发现 NexT 已经出到 7.7 版本了。生命在于折腾。</p>
+<p><a href="https://theme-next.org/docs/getting-started/" target="_blank" rel="noopener">Next 7官方文档</a></p>
+</blockquote>
 
     </div>
 
@@ -507,29 +520,11 @@ something you want to fold, include code block.
 </ul>
 </div>
 
-        
-
-  <div class="followme">
-    <p>欢迎关注我的其它发布渠道</p>
-
-    <div class="social-list">
-
-            <div class="social-item">
-              <a target="_blank" class="social-link" href="/atom.xml">
-                <span class="icon">
-                  <i class="fa fa-rss"></i>
-                </span>
-
-                <span class="label">RSS</span>
-              </a>
-            </div>
-    </div>
-  </div>
-
 
       <footer class="post-footer">
+          
           <div class="post-tags">
-              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
           </div>
 
         
@@ -541,7 +536,10 @@ something you want to fold, include code block.
     <a href="/2020/02/01/2020 Best Wishes/" rel="prev" title="2020 Best Wishes">
       <i class="fa fa-chevron-left"></i> 2020 Best Wishes
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/04/hexo常用插件记录/" rel="next" title="hexo常用插件记录">
+      hexo常用插件记录 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -602,7 +600,7 @@ something you want to fold, include code block.
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-添加看板娘"><span class="nav-number">1.</span> <span class="nav-text">1. 添加看板娘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-添加鼠标点击事件"><span class="nav-number">2.</span> <span class="nav-text">2. 添加鼠标点击事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-添加可折叠的代码块"><span class="nav-number">3.</span> <span class="nav-text">3. 添加可折叠的代码块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-配置版权"><span class="nav-number">4.</span> <span class="nav-text">4. 配置版权</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-添加看板娘"><span class="nav-number">1.</span> <span class="nav-text">1. 添加看板娘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-添加鼠标点击事件"><span class="nav-number">2.</span> <span class="nav-text">2. 添加鼠标点击事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-添加可折叠的代码块"><span class="nav-number">3.</span> <span class="nav-text">3. 添加可折叠的代码块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-配置版权"><span class="nav-number">4.</span> <span class="nav-text">4. 配置版权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-配置评论系统Valine"><span class="nav-number">5.</span> <span class="nav-text">5. 配置评论系统Valine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-配置字数统计"><span class="nav-number">6.</span> <span class="nav-text">6. 配置字数统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-其它优化内容"><span class="nav-number">7.</span> <span class="nav-text">7. 其它优化内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-What’s-more"><span class="nav-number">8.</span> <span class="nav-text">8. What’s more</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -618,7 +616,7 @@ something you want to fold, include code block.
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -678,6 +676,11 @@ something you want to fold, include code block.
     </span>
     <span title="站点总字数">17k</span>
 </div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.1
+  </div>
 
         
 <div class="busuanzi-count">
