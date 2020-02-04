@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[hexo常用插件记录]]></title>
       <url>%2F2020%2F02%2F04%2Fhexo%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E8%AE%B0%E5%BD%95%2F</url>
-      <content type="text"><![CDATA[hexo-wordcount^1 hexo-generator-feed^2 hexo-helper-live2d^3 hexo-symbols-count-time^4 hexo-generator-searchdb^5 hexo-neat^6 hexo-generator-index-pin-top^7 hexo-admin^8 npm install live2d-widget-model-hijiki git clone https://github.com/theme-next/theme-next-canvas-nest themes/next/source/lib/canvas-nest]]></content>
+      <content type="text"><![CDATA[记录常用插件。 插件列表 用途说明 hexo-generator-feed RSS hexo-helper-live2d 看板娘 hexo-symbols-count-time 阅读次数/时长和访客数 hexo-neat 压缩博文 hexo-generator-index-pin-top 置顶博文 hexo-generator-searchdb 全局搜索 hexo-admin 后台管理 hexo-wordcount 字数统计]]></content>
     </entry>
 
     
