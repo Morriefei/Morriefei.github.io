@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://morriefei.github.io/"/>
-  <updated>2020-02-09T07:52:39.488Z</updated>
+  <updated>2020-02-09T08:10:35.652Z</updated>
   <id>http://morriefei.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://morriefei.github.io/2020/02/09/MAC%E6%90%9C%E7%8B%97%E6%8C%82%E6%8E%A5%E5%B0%8F%E9%B9%A4%E5%BD%A2%E7%A0%81/"/>
     <id>http://morriefei.github.io/2020/02/09/MAC%E6%90%9C%E7%8B%97%E6%8C%82%E6%8E%A5%E5%B0%8F%E9%B9%A4%E5%BD%A2%E7%A0%81/</id>
     <published>2020-02-09T07:40:18.000Z</published>
-    <updated>2020-02-09T07:52:39.488Z</updated>
+    <updated>2020-02-09T08:10:35.652Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>平时windows上用的是微软IME挂接小鹤音形，最近用回mac后发现RIME鼠须管不太能满足平时写小说的需要，遂在搜狗输入法里挂了形码。</p></blockquote><ol><li><p>打开「搜狗输入法」偏好设置，在「常用-输入习惯」中勾选双拼，双拼方案设置选择「小鹤双拼」。</p><p><img src="/Users/feijing/Library/Application Support/typora-user-images/image-20200209154430174.png" alt="image-20200209154430174"></p></li><li><p>在「高级」选项卡中选择「自定义短语设置」。选择导出，获取导出的phrase.ini文件。</p><p><img src="/Users/feijing/Library/Application Support/typora-user-images/image-20200209154547132.png" alt="image-20200209154547132"><img src="/Users/feijing/Library/Application Support/typora-user-images/image-20200209154636129.png" alt="image-20200209154636129"></p></li><li><p>用「vscode」或其它文本编辑工具打开phrase.ini，加「搜狗小鹤.txt」中的内容附加到 phrase.ini 文件最后。</p><p><a href="/MAC搜狗挂接小鹤形码/搜狗小鹤.txt">搜狗小鹤.txt</a></p></li><li><p>将 phrase.ini 自定义短语配置重新导回搜狗中，完成形码挂接。</p></li></ol>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>平时windows上用的是微软IME挂接小鹤音形，最近用回mac后发现RIME鼠须管不太能满足平时写小说的需要，遂在搜狗输入法里挂了形码。</p></blockquote><ol><li><p>打开「搜狗输入法」偏好设置，在「常用-输入习惯」中勾选双拼，双拼方案设置选择「小鹤双拼」。</p><p><img src="/.io//02/09/MAC搜狗挂接小鹤形码/image-20200209154430174.png" alt="image-20200209154430174"></p></li><li><p>在「高级」选项卡中选择「自定义短语设置」。选择导出，获取导出的phrase.ini文件。</p><p><img src="/.io//02/09/MAC搜狗挂接小鹤形码/image-20200209154547132.png" alt="image-20200209154547132"><img src="/.io//02/09/MAC搜狗挂接小鹤形码/image-20200209154636129.png" alt="image-20200209154636129"></p></li><li><p>用「vscode」或其它文本编辑工具打开phrase.ini，加「搜狗小鹤.txt」中的内容附加到 phrase.ini 文件最后。</p><p><a href="/MAC搜狗挂接小鹤形码/搜狗小鹤.txt">搜狗小鹤.txt</a></p></li><li><p>将 phrase.ini 自定义短语配置重新导回搜狗中，完成形码挂接。</p></li></ol>]]></content>
     
     <summary type="html">
     
@@ -47,9 +47,9 @@
     <link href="http://morriefei.github.io/2020/02/04/hexo%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E8%AE%B0%E5%BD%95/"/>
     <id>http://morriefei.github.io/2020/02/04/hexo%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E8%AE%B0%E5%BD%95/</id>
     <published>2020-02-04T03:19:40.000Z</published>
-    <updated>2020-02-04T15:03:47.188Z</updated>
+    <updated>2020-02-09T08:09:51.576Z</updated>
     
-    <content type="html"><![CDATA[<p>记录常用插件。</p><a id="more"></a><table><thead><tr><th>插件列表</th><th>用途说明</th></tr></thead><tbody><tr><td>hexo-generator-feed</td><td>RSS</td></tr><tr><td>hexo-helper-live2d</td><td>看板娘</td></tr><tr><td>hexo-symbols-count-time</td><td>阅读次数/时长和访客数</td></tr><tr><td>hexo-neat</td><td>压缩博文</td></tr><tr><td>hexo-generator-index-pin-top</td><td>置顶博文</td></tr><tr><td>hexo-generator-searchdb</td><td>全局搜索</td></tr><tr><td>hexo-admin</td><td>后台管理</td></tr><tr><td>hexo-wordcount</td><td>字数统计</td></tr></tbody></table><p><img src="/.io//feijing/Downloads/hexo/source/_posts/hexo常用插件记录/image-20200204210318496.png" alt="image-20200204210318496"></p>]]></content>
+    <content type="html"><![CDATA[<p>记录常用插件。</p><a id="more"></a><table><thead><tr><th>插件列表</th><th>用途说明</th></tr></thead><tbody><tr><td>hexo-generator-feed</td><td>RSS</td></tr><tr><td>hexo-helper-live2d</td><td>看板娘</td></tr><tr><td>hexo-symbols-count-time</td><td>阅读次数/时长和访客数</td></tr><tr><td>hexo-neat</td><td>压缩博文</td></tr><tr><td>hexo-generator-index-pin-top</td><td>置顶博文</td></tr><tr><td>hexo-generator-searchdb</td><td>全局搜索</td></tr><tr><td>hexo-admin</td><td>后台管理</td></tr><tr><td>hexo-wordcount</td><td>字数统计</td></tr></tbody></table><p><img src="/.io//02/04/hexo常用插件记录/image-20200204210318496.png" alt="image-20200204210318496"></p>]]></content>
     
     <summary type="html">
     
